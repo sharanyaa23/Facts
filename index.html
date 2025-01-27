@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Star Facts</h1>
+        <p id="fact"></p>
+        <button id="nextFactButton">Show Another Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Stars are primarily composed of hydrogen and helium, with heavier elements making up a small percentage of their mass.",
+            "Stars generate energy through nuclear fusion, a process where hydrogen atoms fuse to form helium, releasing a tremendous amount of energy in the form of light and heat.",
+            "The lifespan of a star can vary significantly based on its mass. Smaller stars, like red dwarfs, can live for tens of billions of years, while massive stars may only last a few million years.",
+            "The color of a star indicates its temperature. Blue stars are the hottest (over 30,000 K), followed by white, yellow (like our Sun at about 5,500 K), orange, and red stars, which are the coolest (around 2,500 K).",
+            "The closest star to Earth, Proxima Centauri, is about 4.24 light-years away, while the farthest stars we can see are billions of light-years away.",
+            "Stars often form in groups known as star clusters. There are two main types: open clusters, which are loosely bound and contain young stars, and globular clusters, which are densely packed and contain older stars.",
+            "When massive stars exhaust their nuclear fuel, they can explode in a supernova, an event that can outshine entire galaxies for a short period and spread heavy elements into space.",
+            "Some massive stars end their lives by collapsing into black holes, regions of space where gravity is so strong that nothing, not even light, can escape.",
+            "Some stars are variable, meaning their brightness changes over time due to factors like pulsation, eclipses by other stars, or changes in temperature.",
+            "Stars are not evenly distributed throughout the universe; they are found in galaxies, which can contain billions to trillions of stars, and are often grouped in clusters and superclusters."
+        ];
+
+        let currentFactIndex = 0;
+
+        function showNextFact() {
+            if (currentFactIndex >= facts.length) {
+                currentFactIndex = 0; // Reset to the first fact
+            }
+            document.getElementById('fact').innerText = facts[currentFactIndex];
+            currentFactIndex++;
+        }
+
+        document.getElementById('nextFactButton').addEventListener('click', showNextFact);
+
+        // Show the first fact on page load
+        showNextFact();
+    </script>
+</body>
+</html>
